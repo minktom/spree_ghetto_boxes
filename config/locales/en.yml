@@ -1,0 +1,50 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  activerecord:
+    attributes:
+      box: &box_labels
+        title: Title
+        body: Body
+        visible: Visible
+        target_url: Target URL
+        look: Look
+        position: Position
+      box_location: &box_location_labels
+        title: Title
+        title_visible: Title Visibility
+        position: Position
+    models:
+      box:
+        one: Box
+        many: Boxes
+      box_location:
+        one: Box Location
+        many: Boxes Locaitons
+
+  helpers:
+    label:
+      box:
+        <<: *box_labels
+      box_location:
+        <<: *box_location_labels
+  box: Box
+  boxes: Boxes
+  box_location: Box Locaiton
+  box_locaitons: Box Locations
+  ghetto_boxes:
+    boxes: Boxes
+    box_locations: Box Locations
+    new_box: New box
+    new_box_location: New box location
+    editing_box: Editing box
+    editing_box_location: Editing box location
+    confirm_delete: Are you sure ?
+    more: More »
+    looks:
+      overlay: Text over image
+      right: Text right to image
+      bottom: Text under image
+      text: Text only
+      image: Image only

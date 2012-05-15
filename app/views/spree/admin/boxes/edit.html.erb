@@ -1,0 +1,9 @@
+<%= render :partial => 'spree/admin/shared/box_sub_menu' %>
+
+<h1><%= t("ghetto_boxes.editing_box") %></h1>
+<%= render "spree/shared/error_messages", :target => @box %>
+
+<%= form_for [:admin, @box], :multipart => true do |f| %>
+  <%= render :partial => 'form', :locals => { :f => f } %>
+  <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
+<% end %>

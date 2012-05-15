@@ -1,0 +1,24 @@
+<div class="clearfix">
+  <div class="left">
+    <%= f.field_container :title do %>
+      <%= f.label :title %> <span class="required">*</span><br />
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
+    <%= f.field_container :position do %>
+      <%= f.label :position %> <br />
+      <%= f.text_field :position, :class => 'fullwidth' %>
+      <%= f.error_message_on :position %>
+    <% end %>
+
+  </div>
+  <div class="right">
+
+    <%= f.field_container :title_visible do %>
+      <%= f.check_box :title_visible %>
+      <%= f.label :title_visible %>
+    <% end %>
+
+  </div>
+</div>

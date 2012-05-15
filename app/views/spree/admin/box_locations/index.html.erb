@@ -1,0 +1,36 @@
+<%= render :partial => 'spree/admin/shared/box_sub_menu' %>
+
+<div class='toolbar'>
+  <ul class='actions'>
+    <li id="new_product_link">
+      <%= button_link_to t("ghetto_boxes.new_box_location"), new_object_url, {:icon => 'add'} %>
+    </li>
+  </ul>
+  <br class='clear' />
+</div>
+
+<h1><%=t("ghetto_boxes.box_locations") %></h1>
+
+<table class="index">
+  <tr>
+    <th><%= Spree::BoxLocation.human_attribute_name(:title) %></th>
+    <th><%= Spree::BoxLocation.human_attribute_name(:position) %></th>
+    <th><%= t("action") %></th>
+  </tr>
+  <tbody>
+    <% @box_locations.each do |box_location| %>
+    <tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id box_location %>">
+      <td>
+        <%= box_location.title %>
+      </td>
+      <td>
+        <%= box_location.position %>
+      </td>
+      <td>
+        <%= link_to_edit box_location %> &nbsp;
+        <%= link_to_delete box_location %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

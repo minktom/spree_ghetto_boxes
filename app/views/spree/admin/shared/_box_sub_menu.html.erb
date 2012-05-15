@@ -1,0 +1,6 @@
+<% content_for :sub_menu do %>
+  <ul id="sub_nav" data-hook="admin_box_sub_tabs">
+    <%= tab :boxes, :match_path => '/boxes' %>
+    <%= tab :box_locations, :match_path => '/box_locations' %>
+  </ul>
+<% end %>

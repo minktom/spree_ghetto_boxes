@@ -1,0 +1,49 @@
+<div class="clearfix">
+  <div class="left">
+    <%= f.field_container :title do %>
+      <%= f.label :title %> <span class="required">*</span><br />
+      <%= f.text_field :title, :class => 'fullwidth title' %>
+      <%= f.error_message_on :title %>
+    <% end %>
+
+    <%= f.field_container :target_url do %>
+      <%= f.label :target_url %> <span class="required">*</span><br />
+      <%= f.text_field :target_url, :class => 'fullwidth title' %>
+      <%= f.error_message_on :target_url %>
+    <% end %>
+
+    <%= f.field_container :location_id do %>
+      <%= f.label :location_id %><br />
+      <%= f.select :location_id, Spree::BoxLocation.all.map{|location| [location.title, location.id]} ,:class => 'fullwidth' %>
+      <%= f.error_message_on :location_id %>
+    <% end %>
+
+    <%= f.field_container :look do %>
+      <%= f.label :look %><br />
+      <%= f.select :look, Spree::Box::LOOKS.map{|look| [t("ghetto_boxes.looks.#{look}"), look]}, :class => 'fullwidth' %>
+      <%= f.error_message_on :look %>
+    <% end %>
+
+    <%= f.field_container :visible do %>
+      <%= f.check_box :visible %>
+      <%= f.label :visible %>
+    <% end %>
+
+    <%= f.field_container :image do %>
+      <%= f.label :image %><br />
+      <%= f.file_field :image %>
+      <%= f.error_message_on :image %>
+      <%= image_tag @box.image.url(:original) %>
+    <% end %>
+
+  </div>
+  <div class="right">
+
+    <%= f.field_container :body do %>
+      <%= f.label :body %> <span class="required">*</span><br />
+      <%= f.text_area :body, :class => 'fullwidth' %>
+      <%= f.error_message_on :body %>
+    <% end %>
+
+  </div>
+</div>
