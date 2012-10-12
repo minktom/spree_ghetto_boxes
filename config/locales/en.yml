@@ -14,6 +14,9 @@ en:
       box_location: &box_location_labels
         title: Title
         title_visible: Title Visibility
+        show_on_frontend: Show on Frontend
+        show_in_sidebar: Show in Sidebar
+        show_in_footer: Show in Footer
         position: Position
     models:
       box:
@@ -44,7 +47,9 @@ en:
     more: More »
     looks:
       overlay: Text over image
+      left:  Text left to image
       right: Text right to image
       bottom: Text under image
       text: Text only
       image: Image only
+      highlighted: Highlighted

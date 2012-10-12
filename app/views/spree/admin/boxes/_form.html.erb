@@ -33,7 +33,6 @@
       <%= f.label :image %><br />
       <%= f.file_field :image %>
       <%= f.error_message_on :image %>
-      <%= image_tag @box.image.url(:original) %>
     <% end %>
 
   </div>
@@ -44,6 +43,8 @@
       <%= f.text_area :body, :class => 'fullwidth' %>
       <%= f.error_message_on :body %>
     <% end %>
+
+    <%= image_tag(@box.image.url(:original)) if @box.image.present? %>
 
   </div>
 </div>

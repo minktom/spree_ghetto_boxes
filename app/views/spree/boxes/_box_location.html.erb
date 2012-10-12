@@ -1,0 +1,6 @@
+<div id="box-location-<%= box_location.id %>" class="box-location">
+  <% if box_location.title_visible %>
+    <h2><%= box_location.title %></h2>
+  <% end %>
+  <%= render partial: 'box', collection: box_location.boxes, as: :box %>
+</div>

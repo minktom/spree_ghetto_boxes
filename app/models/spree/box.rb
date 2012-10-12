@@ -1,10 +1,11 @@
 class Spree::Box < ActiveRecord::Base
 
-  LOOKS = [ :overlay, :right, :bottom, :image, :text ]
+  LOOKS = [ :overlay, :left, :right, :bottom, :image, :text, :highlighted ]
 
   attr_accessible :title, :body, :target_url, :position, :look, :visible, :image, :location_id
 
   acts_as_list
+
   has_attached_file :image,
                     :styles => {:thumb => "100x100>" },
                     :url => '/spree/boxes/:id/:basename_:style.:extension',
@@ -24,9 +25,9 @@ class Spree::Box < ActiveRecord::Base
   end
 
   belongs_to :box_location, :foreign_key => :location_id
+  validates :title, :target_url, :look, :presence => true
 
   default_scope :order => :position
-
   scope :visible, where(:visible => true)
 
   def find_dimensions
@@ -36,6 +37,13 @@ class Spree::Box < ActiveRecord::Base
     geometry = Paperclip::Geometry.from_file(filename)
     self.image_width  = geometry.width
     self.image_height = geometry.height
+  end
+
+  def css_classes
+    ary = []
+    ary << "look-#{look}"
+    ary << 'no-image' unless image.present?
+    ary.join(' ')
   end
 
 end

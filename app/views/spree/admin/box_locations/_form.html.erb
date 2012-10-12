@@ -20,5 +20,20 @@
       <%= f.label :title_visible %>
     <% end %>
 
+    <%= f.field_container :show_on_frontend do %>
+      <%= f.check_box :show_on_frontend %>
+      <%= f.label :show_on_frontend %>
+    <% end %>
+
+    <%= f.field_container :show_in_sidebar do %>
+      <%= f.check_box :show_in_sidebar %>
+      <%= f.label :show_in_sidebar %>
+    <% end %>
+
+    <%= f.field_container :show_in_footer do %>
+      <%= f.check_box :show_in_footer %>
+      <%= f.label :show_in_footer %>
+    <% end %>
+
   </div>
 </div>

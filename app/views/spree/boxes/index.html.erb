@@ -4,21 +4,5 @@
 
 <h1><%= title %></h1>
 <div id="box_locations_container">
-  <% Spree::BoxLocation.all.each do |box_location| %>
-    <div class="box_location">
-      <% if box_location.title_visible %>
-        <h2><%= box_location.title %></h2>
-      <% end %>
-      <% box_location.boxes.each do |box| %>
-        <div class="box_container">
-          <%= link_to image_tag(box.image.url), box.target_url %>
-          <div class="box_text">
-            <h3><%= link_to box.title, box.target_url %></h3>
-            <p><%= box.body %></p>
-            <p><%= link_to t('ghetto_boxes.more'), box.target_url %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <%= render partial: 'box_location', collection: Spree::BoxLocation.frontend, as: :box_location %>
 </div>
