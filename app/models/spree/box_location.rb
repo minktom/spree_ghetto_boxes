@@ -1,6 +1,7 @@
 class Spree::BoxLocation < ActiveRecord::Base
 
-  attr_accessible :title, :title_visible, :position, :show_on_frontend, :show_in_sidebar, :show_in_footer
+  attr_accessible :title, :title_visible, :position, :css_class,
+                  :show_on_frontend, :show_in_sidebar, :show_in_footer
 
   acts_as_list
   has_many :boxes, :foreign_key => :location_id

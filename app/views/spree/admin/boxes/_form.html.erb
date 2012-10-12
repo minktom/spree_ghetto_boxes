@@ -12,10 +12,30 @@
       <%= f.error_message_on :target_url %>
     <% end %>
 
+    <%= f.field_container :body do %>
+      <%= f.label :body %> <span class="required">*</span><br />
+      <%= f.text_area :body, :class => 'fullwidth' %>
+      <%= f.error_message_on :body %>
+    <% end %>
+
     <%= f.field_container :location_id do %>
       <%= f.label :location_id %><br />
       <%= f.select :location_id, Spree::BoxLocation.all.map{|location| [location.title, location.id]} ,:class => 'fullwidth' %>
       <%= f.error_message_on :location_id %>
+    <% end %>
+
+    <%= f.field_container :position do %>
+      <%= f.label :position %> <br />
+      <%= f.text_field :position, :class => 'fullwidth' %>
+      <%= f.error_message_on :position %>
+    <% end %>
+
+  </div>
+  <div class="right">
+
+    <%= f.field_container :visible do %>
+      <%= f.check_box :visible %>
+      <%= f.label :visible %>
     <% end %>
 
     <%= f.field_container :look do %>
@@ -24,24 +44,10 @@
       <%= f.error_message_on :look %>
     <% end %>
 
-    <%= f.field_container :visible do %>
-      <%= f.check_box :visible %>
-      <%= f.label :visible %>
-    <% end %>
-
     <%= f.field_container :image do %>
       <%= f.label :image %><br />
       <%= f.file_field :image %>
       <%= f.error_message_on :image %>
-    <% end %>
-
-  </div>
-  <div class="right">
-
-    <%= f.field_container :body do %>
-      <%= f.label :body %> <span class="required">*</span><br />
-      <%= f.text_area :body, :class => 'fullwidth' %>
-      <%= f.error_message_on :body %>
     <% end %>
 
     <%= image_tag(@box.image.url(:original)) if @box.image.present? %>

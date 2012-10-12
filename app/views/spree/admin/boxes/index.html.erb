@@ -16,24 +16,17 @@
     <th><%= Spree::Box.human_attribute_name(:title) %></th>
     <th><%= Spree::Box.human_attribute_name(:visible) %></th>
     <th><%= Spree::Box.human_attribute_name(:location) %></th>
+    <th><%= Spree::Box.human_attribute_name(:position) %></th>
     <th><%= t("action") %></th>
   </tr>
   <tbody>
     <% @boxes.each do |box| %>
     <tr class="<%= cycle('even', 'odd') %>" id="<%= dom_id box %>">
-      <td>
-        <%= box.title %>
-      </td>
-      <td>
-        <%= icon('tick') if box.visible %>
-      </td>
-      <td>
-        <%= box.box_location %>
-      </td>
-      <td>
-        <%= link_to_edit box %> &nbsp;
-        <%= link_to_delete box %>
-      </td>
+      <td><%= box.title %></td>
+      <td><%= icon('tick') if box.visible %></td>
+      <td><%= box.box_location %></td>
+      <td><%= box.position %></td>
+      <td><%= link_to_edit box %> &nbsp; <%= link_to_delete box %></td>
     </tr>
     <% end %>
   </tbody>

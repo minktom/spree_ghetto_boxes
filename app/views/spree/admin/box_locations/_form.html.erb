@@ -12,6 +12,12 @@
       <%= f.error_message_on :position %>
     <% end %>
 
+    <%= f.field_container :css_class do %>
+      <%= f.label :css_class %><br />
+      <%= f.text_field :css_class, :class => 'fullwidth' %>
+      <%= f.error_message_on :css_class %>
+    <% end %>
+
   </div>
   <div class="right">
 
