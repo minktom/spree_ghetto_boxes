@@ -4,7 +4,7 @@ class Spree::Box < ActiveRecord::Base
 
   attr_accessible :title, :body, :target_url, :position, :look, :visible, :image, :location_id
 
-  acts_as_list :scope => :box_location
+  acts_as_list :scope => :location_id
 
   has_attached_file :image,
                     :styles => {:thumb => "100x100>" },

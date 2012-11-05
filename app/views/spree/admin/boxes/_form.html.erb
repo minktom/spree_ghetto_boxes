@@ -18,6 +18,9 @@
       <%= f.error_message_on :body %>
     <% end %>
 
+  </div>
+  <div class="right">
+
     <%= f.field_container :location_id do %>
       <%= f.label :location_id %><br />
       <%= f.select :location_id, Spree::BoxLocation.all.map{|location| [location.title, location.id]} ,:class => 'fullwidth' %>
@@ -29,9 +32,6 @@
       <%= f.text_field :position, :class => 'fullwidth' %>
       <%= f.error_message_on :position %>
     <% end %>
-
-  </div>
-  <div class="right">
 
     <%= f.field_container :visible do %>
       <%= f.check_box :visible %>
