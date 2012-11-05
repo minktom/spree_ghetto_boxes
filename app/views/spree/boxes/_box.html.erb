@@ -2,7 +2,7 @@
 <% css_classes << 'first' if box_counter == 0 %>
 <div id="box-<%= box.id %>" class="box-container <%= css_classes.join(' ') %>">
   <% if box.image.present? %>
-    <%= link_to(image_tag(box.image.url, alt: box.title, title: box.title), box.target_url, class: 'image-link') %>
+    <%= link_to(image_tag(box.image.url, alt: box.title, title: box.title, width: box.image_width, height: box.image_height), box.target_url, class: 'image-link') %>
   <% end %>
   <div class="box-text-box">
     <h3><%= link_to box.title, box.target_url %></h3>
